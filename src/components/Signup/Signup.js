@@ -3,10 +3,14 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import "./Singup.css";
 import { Link, useNavigate } from "react-router-dom";
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSendEmailVerification } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import { async } from '@firebase/util';
 
 const Signup = () => {
+    const [sendEmailVerification, sending] = useSendEmailVerification(
+        auth
+    );
     const [
         createUserWithEmailAndPassword,
         user,
@@ -19,7 +23,7 @@ const Signup = () => {
     if (user) {
         navigate("/home");
     }
-    const handleSubmit = event => {
+    const handleSubmit = async event => {
         event.preventDefault();
         const name = event.target.name.value;
         const email = event.target.email.value;
@@ -32,7 +36,8 @@ const Signup = () => {
         if (password.length < 6) {
             setError("Password must be six chareacter");
         }
-        createUserWithEmailAndPassword(email, password);
+        await createUserWithEmailAndPassword(email, password);
+        await sendEmailVerification();
         event.target.reset();
 
     }
