@@ -1,36 +1,70 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import "./Singup.css";
+import { Link, useNavigate } from "react-router-dom";
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 
 const Signup = () => {
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+
+    ] = useCreateUserWithEmailAndPassword(auth);
+    const [agree, setAgree] = useState(false);
+    const [error, setError] = useState("");
+    const navigate = useNavigate();
+    if (user) {
+        navigate("/home");
+    }
+    const handleSubmit = event => {
+        event.preventDefault();
+        const name = event.target.name.value;
+        const email = event.target.email.value;
+        const password = event.target.password.value;
+        const confirmPassword = event.target.confirmPassword.value;
+        if (password !== confirmPassword) {
+            setError("Your password did not match");
+            return;
+        }
+        if (password.length < 6) {
+            setError("Password must be six chareacter");
+        }
+        createUserWithEmailAndPassword(email, password);
+        event.target.reset();
+
+    }
     return (
         <div>
             <h1 className="text-primary text-center mt-5 ">Please create account</h1>
-            <Form className="w-25 mx-auto mt-3 display-one">
+            <Form onSubmit={handleSubmit} className="w-50 mx-auto mt-3 display-one">
                 <Form.Group className="mb-3" controlId="formBasicName">
                     <Form.Label>Email Name</Form.Label>
-                    <Form.Control type="name" placeholder="Enter name" />
+                    <Form.Control className="rounded-pill border border-info" type="name" name="name" placeholder="Enter name" required />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email</Form.Label>
-                    <Form.Control type="email" placeholder="email" />
+                    <Form.Control className="rounded-pill border border-info" type="email" name="email" placeholder="email" required />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
+                    <Form.Control className="rounded-pill border border-info" type="password" name="password" placeholder="Password" required />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Confirm Password</Form.Label>
-                    <Form.Control type="password" placeholder="Confirm Password" />
+                    <Form.Control className="rounded-pill border border-info" type="password" name="confirmPassword" placeholder="Confirm Password" required />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
+                    <Form.Check onClick={() => setAgree(!agree)} type="checkbox" className={agree ? "text-primary" : "text-danger"} label="Accept terms and condition" />
                 </Form.Group>
-                <Button variant="primary" type="submit">
-                    Submit
+                <p className="text-danger">{error}</p>
+                <Button disabled={!agree} className="rounded-pill border border-info" variant="primary" type="submit">
+                    Create
                 </Button>
+                <p className="mt-3">Already have an account ? <Link className="text-decoration-none" to="/login">Login</Link></p>
             </Form>
         </div>
     );
