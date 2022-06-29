@@ -5,6 +5,7 @@ import "./Login.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import Loading from '../Loading/Loading';
 
 const Login = () => {
     const [
@@ -23,6 +24,9 @@ const Login = () => {
     const navigate = useNavigate();
     if (user) {
         navigate("/home");
+    }
+    if (loading) {
+        return <p><Loading></Loading></p>
     }
     return (
         <div>

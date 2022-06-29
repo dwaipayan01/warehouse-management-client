@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useCreateUserWithEmailAndPassword, useSendEmailVerification } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { async } from '@firebase/util';
+import Loading from '../Loading/Loading';
 
 const Signup = () => {
     const [sendEmailVerification, sending] = useSendEmailVerification(
@@ -22,6 +23,9 @@ const Signup = () => {
     const navigate = useNavigate();
     if (user) {
         navigate("/home");
+    }
+    if (loading) {
+        return <p><Loading></Loading></p>
     }
     const handleSubmit = async event => {
         event.preventDefault();
