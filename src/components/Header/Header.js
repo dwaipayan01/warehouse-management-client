@@ -1,0 +1,37 @@
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import picture from "../../images/Banner/dj1.webp";
+import { Link } from "react-router-dom";
+
+const Header = () => {
+    return (
+        <div>
+            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+                <Container>
+                    <Navbar.Brand as={Link} to="/home">
+                        <img style={{ height: "35px" }} src={picture} alt="" />
+                    </Navbar.Brand>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Collapse id="responsive-navbar-nav">
+                        <Nav className="me-auto">
+                            <Nav.Link href="#features">blogs</Nav.Link>
+
+
+                        </Nav>
+                        <Nav>
+                            <Nav.Link href="/about">About</Nav.Link>
+                            <Nav.Link as={Link} eventKey={2} to="/login">
+                                Login
+                            </Nav.Link>
+                        </Nav>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
+        </div>
+    );
+};
+
+export default Header;
