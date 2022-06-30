@@ -1,7 +1,8 @@
 .display {
     background-color: #E5E5E3;
-    height: 400px;
+    height: 600px;
     padding: 40px;
     border-radius: 20px;
     box-shadow: 10px 10px #888888;
+    margin-bottom: 20px;
 }

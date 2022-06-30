@@ -7,6 +7,7 @@ import { useCreateUserWithEmailAndPassword, useSendEmailVerification } from 'rea
 import auth from '../../firebase.init';
 import { async } from '@firebase/util';
 import Loading from '../Loading/Loading';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Signup = () => {
     const [sendEmailVerification, sending] = useSendEmailVerification(
@@ -74,7 +75,9 @@ const Signup = () => {
                     Create
                 </Button>
                 <p className="mt-3">Already have an account ? <Link className="text-decoration-none" to="/login">Login</Link></p>
+                <SocialLogin></SocialLogin>
             </Form>
+
         </div>
     );
 };
