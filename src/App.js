@@ -7,6 +7,7 @@ import Header from './components/Header/Header';
 import Signup from './components/Signup/Signup';
 import Blogs from './components/Blogs/Blogs';
 import Notfound from './components/Notfound/Notfound';
+import ManageInventory from './components/Inventory/ManageInventory/ManageInventory';
 
 
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<Signup></Signup>}></Route>
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
+        <Route path="/manageinventory" element={<ManageInventory></ManageInventory>}></Route>
         <Route path="*" element={<Notfound></Notfound>}></Route>
       </Routes>
 
