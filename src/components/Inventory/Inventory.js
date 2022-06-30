@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from "react-router-dom";
+import "./Inventory.css";
 
 const Inventory = () => {
     const [products, setProducts] = useState([]);
@@ -14,7 +15,7 @@ const Inventory = () => {
     return (
         <div>
             <h1 className='text-primary text-center mt-5'>Inventory Section</h1>
-            <div className="row container ms-5 mt-3 text-center" >
+            <div className="row container mt-3 text-center display-area" >
                 {
                     products.slice(0, 6).map(product => <div className="col-lg-4 col-sm-12 mt-5" key={product._id}>
                         <div>
