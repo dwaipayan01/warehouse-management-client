@@ -8,6 +8,7 @@ import Signup from './components/Signup/Signup';
 import Blogs from './components/Blogs/Blogs';
 import Notfound from './components/Notfound/Notfound';
 import ManageInventory from './components/ManageInventory/ManageInventory';
+import AddItem from './components/AddItem/AddItem';
 
 
 
@@ -22,6 +23,7 @@ function App() {
         <Route path="/signup" element={<Signup></Signup>}></Route>
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route path="/manageinventory" element={<ManageInventory></ManageInventory>}></Route>
+        <Route path="/additem" element={<AddItem></AddItem>}></Route>
         <Route path="*" element={<Notfound></Notfound>}></Route>
       </Routes>
 

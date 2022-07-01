@@ -2,6 +2,7 @@ import React from 'react';
 import useProducts from '../../useProduct';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
 
 
 const ManageInventory = () => {
@@ -24,8 +25,9 @@ const ManageInventory = () => {
     }
     return (
         <div>
+            <div className="text-center mt-5"><Button variant="primary"><Link className="text-decoration-none text-white" to="/additem">Add new item</Link></Button>{' '}</div>
             <h1 className="text-center text-primary mt-5">Manage all inventory</h1>
-            <div className="row container mt-3 display-area">
+            <div className="row container mt-3 ms-5">
                 {
                     products.map(product => <div className="col-lg-4 col-12 text-center mt-5">
                         <Card style={{ width: '18rem' }}>
