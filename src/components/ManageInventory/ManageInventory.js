@@ -7,7 +7,21 @@ import Card from 'react-bootstrap/Card';
 const ManageInventory = () => {
     const [products, setProducts] = useProducts();
 
-
+    const handleDelete = id => {
+        const proced = window.confirm("Are you sure");
+        if (proced) {
+            const url = `http://localhost:5000/product/${id}`;
+            fetch(url, {
+                method: "DELETE",
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    const remaning = products.filter(product => product._id !== id);
+                    setProducts(remaning);
+                });
+        }
+    }
     return (
         <div>
             <h1 className="text-center text-primary mt-5">Manage all inventory</h1>
@@ -24,7 +38,7 @@ const ManageInventory = () => {
                                 <Card.Text>
                                     {product.shortDescription}
                                 </Card.Text>
-                                <Button variant="primary">Delete item</Button>
+                                <Button onClick={() => handleDelete(product._id)} variant="primary">Delete item</Button>
                             </Card.Body>
                         </Card>
                     </div>)
