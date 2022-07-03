@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import "./Login.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Loading from '../Loading/Loading';
@@ -11,6 +11,8 @@ import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const Login = () => {
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
     const [email, setEmail] = useState('');
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
     const [
@@ -31,7 +33,7 @@ const Login = () => {
     }
     const navigate = useNavigate();
     if (user) {
-        navigate("/home");
+        navigate(from, { replace: true });
     }
     if (loading) {
         return <p><Loading></Loading></p>
