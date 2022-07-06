@@ -1,92 +1,62 @@
 [
     {
-        
-        "shortDescription": "This item is available",
         "price": "$5",
-        "picture": "https://img.freepik.com/free-photo/eggs-basket_1203-7687.jpg?t=st=1656570567~exp=1656571167~hmac=961083a91bdd181dcd3161d1d5d17a87cb5c281f5e6aff0d7661580ba698c38b&w=740",
-        "quantity": 100,
-        "name": "Egg",
-        "supplierName": "Beauti farm"
+        "picture": "https://img.freepik.com/free-photo/close-up-fresh-organic-mandarins_114579-61563.jpg?t=st=1656830715~exp=1656831315~hmac=d320b377ee3f79a3c7998b0e235f6e11e6b1de57c94a74029732cbda0310c2b5&w=740",
+        "name": "Mandrain Orange",
+        "Rating": 5
     },
     {
-        
-        "shortDescription": "This item is available",
         "price": "$10",
         "picture": "https://img.freepik.com/free-photo/fresh-red-meet-butchery-worker-working-background_342744-662.jpg?t=st=1656570749~exp=1656571349~hmac=c09585fe724155a44232e51dee62379433fda6bdc7ea3e72708860c7241458da&w=740",
-        "quantity": 20,
         "name": "Meat",
-        "supplierName": "Beauti farm"
+        "Rating": 5
     },
     {
-       
-        "shortDescription": "This item is available",
         "price": "$3",
         "picture": "https://img.freepik.com/free-photo/sack-with-almond-white-background_1150-37666.jpg?t=st=1656573598~exp=1656574198~hmac=47ee818640c1b0a8e66e3675180dc29fdefae02e7107e8e352b9f21d5596feca&w=740",
-        "quantity": 200,
         "name": "Nut",
-        "supplierName": "Cargo"
+        "Rating": 5
     },
     {
-        
-        "shortDescription": "This item is available",
         "price": "$12",
         "picture": "https://img.freepik.com/free-photo/fresh-bass-with-white-background_1203-1781.jpg?t=st=1656573692~exp=1656574292~hmac=70b8e8c742f9645e4f4156da5562ea528a3940af68920ac054432079aabfa833&w=740",
-        "quantity": 50,
         "name": "Fish",
-        "supplierName": "Beauti farm"
+        "Rating": 5
     },
     {
-        
-        "shortDescription": "This item is available",
         "price": "$10",
         "picture": "https://img.freepik.com/free-photo/cut-watermelon-knife-blue-table_53876-96799.jpg?t=st=1656574056~exp=1656574656~hmac=b1fb0a8eb7bbe778e4a375a74b64dcac8eb3b4c66a84f9acb57dd3b05b5fd5b3&w=740",
-        "quantity": 40,
         "name": "Watermelon",
-        "supplierName": "Beauti farm"
+        "Rating": 5
     },
     {
-        
-        "shortDescription": "This item is available",
         "price": "$5",
         "picture": "https://img.freepik.com/free-photo/tomatoes_144627-15411.jpg?t=st=1656573827~exp=1656574427~hmac=9c664f633ff69ab5ebb0f78203a7080b74cfee5244510e506dff04013770af72&w=826",
-        "quantity": 200,
         "name": "Tomato",
-        "supplierName": "Beauti farm"
+        "Rating": 5
     },
     {
-        
-        "shortDescription": "This item is available",
         "price": "$15",
         "picture": "https://img.freepik.com/free-psd/cooking-oil-bottle-mockup_358694-1007.jpg?t=st=1656573924~exp=1656574524~hmac=6576e10e12c642151830c8549ece7062977e240395e949ce2c594adf3864b162&w=740",
-        "quantity": 100,
         "name": "Oil",
-        "supplierName": "Teer"
+        "Rating": 5
     },
     {
-        
-        "shortDescription": "This item is available",
         "price": "$10",
         "picture": "https://img.freepik.com/free-photo/mango-tree-with-nature_1150-12252.jpg?t=st=1656574175~exp=1656574775~hmac=2c416f3488b9162895c35fa6861df901cdc2262edf3b7ef722bd5e8652367dff&w=740",
-        "quantity": 50,
         "name": "Mango",
-        "supplierName": "Beauti farm"
+        "Rating": 5
     },
     {
-        
-        "shortDescription": "This item is available",
         "price": "$10",
         "picture": "https://img.freepik.com/free-photo/jackfruit_1339-3723.jpg?t=st=1656574281~exp=1656574881~hmac=8c5a70fca7b3e765c6cd35381de32db7fa998fdf2cbc28451aee06ea3a21e051&w=740",
-        "quantity": 30,
         "name": "Jackfruit",
-        "supplierName": "Beauti farm"
+        "Rating": 5
     },
     {
-       
-        "shortDescription": "This item is available",
         "price": "$2",
         "picture": "https://img.freepik.com/free-photo/delicious-cookies_144627-21569.jpg?t=st=1656574348~exp=1656574948~hmac=c5d20e514b08192dbc68a118c8515f77caec6e946f86e1527e6389dc0303ccdd&w=740",
-        "quantity": 200,
         "name": "Biscuit",
-        "supplierName": "Olampic"
+        "Rating": 5
     }
 ]
