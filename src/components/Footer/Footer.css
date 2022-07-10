@@ -1,6 +1,7 @@
 .footer-area {
     width: 100%;
     background-color: lightcoral;
+    overflow-x: hidden;
 }
 
 .footer-middle-area {

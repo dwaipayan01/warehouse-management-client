@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Inventory.css";
 
 
@@ -13,6 +13,10 @@ const Inventory = () => {
             .then(res => res.json())
             .then(data => setProducts(data));
     }, [])
+    const navigate = useNavigate();
+    const handleInventory = id => {
+        navigate(`/inventoryDetail/${id}`);
+    }
     return (
         <div>
             <h1 className='text-primary text-center mt-5'>Inventory Section</h1>
@@ -31,7 +35,7 @@ const Inventory = () => {
                                     <Card.Text>
                                         {product.shortDescription}
                                     </Card.Text>
-                                    <Button variant="primary">Update</Button>
+                                    <Button onClick={() => handleInventory(product._id)} variant="primary">Update</Button>
                                 </Card.Body>
                             </Card>
                         </div>

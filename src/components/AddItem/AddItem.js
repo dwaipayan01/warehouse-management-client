@@ -11,23 +11,18 @@ const AddItem = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = (data, event) => {
         console.log(data);
-        fetch("http://localhost:5000/product", {
+        const url = `http://localhost:5000/product`;
+        fetch(url, {
             method: 'POST',
-            body: JSON.stringify(
-
-                data
-
-
-
-
-
-            ),
             headers: {
-                'Content-type': 'application/json',
+                'content-type': 'application/json'
             },
+            body: JSON.stringify(data)
         })
-            .then((response) => response.json())
-            .then((json) => console.log(json));
+            .then(res => res.json())
+            .then(result => {
+                console.log(result);
+            })
 
         event.target.reset();
         toast("Item added successfully");

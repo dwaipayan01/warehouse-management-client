@@ -11,6 +11,7 @@ import ManageInventory from './components/ManageInventory/ManageInventory';
 import AddItem from './components/AddItem/AddItem';
 import RequireAuth from './components/RequireAuth/RequireAuth';
 import Footer from './components/Footer/Footer';
+import InventoryDetail from './components/InventoryDetail/InventoryDetail';
 
 
 
@@ -30,6 +31,7 @@ function App() {
         <Route path="/additem" element={<RequireAuth>
           <AddItem></AddItem>
         </RequireAuth>}></Route>
+        <Route path="/inventoryDetail/:inventoryID" element={<InventoryDetail></InventoryDetail>}></Route>
         <Route path="*" element={<Notfound></Notfound>}></Route>
       </Routes>
       <Footer></Footer>
