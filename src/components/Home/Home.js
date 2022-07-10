@@ -12,6 +12,7 @@ const Home = () => {
             <Inventory></Inventory>
             <SpecialProduct></SpecialProduct>
             <Subscription></Subscription>
+
         </div>
     );
 };

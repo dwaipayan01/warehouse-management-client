@@ -1,0 +1,10 @@
+.footer-area {
+    width: 100%;
+    background-color: lightcoral;
+}
+
+.footer-middle-area {
+    line-height: 0px;
+    color: white;
+    cursor: pointer;
+}

@@ -10,6 +10,7 @@ import Notfound from './components/Notfound/Notfound';
 import ManageInventory from './components/ManageInventory/ManageInventory';
 import AddItem from './components/AddItem/AddItem';
 import RequireAuth from './components/RequireAuth/RequireAuth';
+import Footer from './components/Footer/Footer';
 
 
 
@@ -31,6 +32,7 @@ function App() {
         </RequireAuth>}></Route>
         <Route path="*" element={<Notfound></Notfound>}></Route>
       </Routes>
+      <Footer></Footer>
 
     </div>
   );
