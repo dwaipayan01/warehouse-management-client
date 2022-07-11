@@ -5,6 +5,7 @@ import "./inventoryDetail.css";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
+import { toast, ToastContainer } from 'react-toastify';
 
 const InventoryDetail = () => {
     const { inventoryID } = useParams();
@@ -14,7 +15,7 @@ const InventoryDetail = () => {
         fetch(url)
             .then(res => res.json())
             .then(data => setInventory(data));
-    }, [])
+    }, [inventory])
     const handleItem = (event) => {
         event.preventDefault();
         const updatedQuantity = event.target.number.value;
@@ -33,7 +34,29 @@ const InventoryDetail = () => {
             .then(data => {
 
                 console.log("success", data);
+                toast("Quantity successfully added");
                 event.target.reset();
+            })
+    }
+    const handleDeliver = () => {
+        console.log("Click hoise re")
+        const newValue = parseInt(inventory.quantity) - 1;
+        console.log(newValue);
+        const renewQuantity = { newValue };
+        const url = `http://localhost:5000/user/${inventoryID}`;
+        fetch(url, {
+            method: "PUT",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(renewQuantity)
+        })
+            .then(res => res.json())
+            .then(data => {
+
+                console.log("success", data);
+
+
             })
     }
     return (
@@ -49,20 +72,21 @@ const InventoryDetail = () => {
                         <Card.Text>
                             {inventory.shortDescription}
                         </Card.Text>
-                        <Button variant="primary">Deliver</Button>
+                        <Button onClick={handleDeliver} variant="primary">Deliver</Button>
                     </Card.Body>
                 </Card>
             </div>
             <div>
                 <Form onSubmit={handleItem} className="w-25 mx-auto mt-3">
                     <Form.Group className="mb-3" controlId="formBasicNumber">
-                        <Form.Label>Restock item</Form.Label>
+                        <Form.Label>Restock the items</Form.Label>
                         <Form.Control type="number" name="number" placeholder="name" />
                     </Form.Group>
                     <Button variant="primary" type="submit">
                         Submit
                     </Button>
                 </Form>
+                <ToastContainer />
             </div>
 
         </div>
