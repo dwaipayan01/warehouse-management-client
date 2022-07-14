@@ -47,9 +47,9 @@ const Signup = () => {
 
     }
     return (
-        <div>
-            <h1 className="text-primary text-center mt-5 ">Please create account</h1>
-            <Form onSubmit={handleSubmit} className="w-50 mx-auto mt-3 display-one">
+        <div className="display-one mt-5 mx-auto">
+            <h1 className="text-primary text-center mt-3 ">Please create account</h1>
+            <Form onSubmit={handleSubmit} className="w-100 mx-auto mt-3 ">
                 <Form.Group className="mb-3" controlId="formBasicName">
                     <Form.Label>Email Name</Form.Label>
                     <Form.Control className="rounded-pill border border-info" type="name" name="name" placeholder="Enter name" required />

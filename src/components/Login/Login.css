@@ -1,5 +1,7 @@
 .display {
     background-color: #E5E5E3;
+    margin: 0 auto;
+    width: 600px;
     height: 600px;
     padding: 40px;
     border-radius: 20px;
@@ -10,5 +12,13 @@
 @media only screen and (max-width:576px) {
     .display {
         width: 100%;
+
+    }
+}
+
+@media only screen and (min-width:577px) and (max-width:768px) {
+    .display {
+        width: 100%;
+
     }
 }

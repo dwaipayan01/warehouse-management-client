@@ -21,11 +21,30 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
-    const handleLogin = event => {
+    const handleLogin = async event => {
         event.preventDefault();
         const email = event.target.email.value;
         const password = event.target.password.value;
-        signInWithEmailAndPassword(email, password);
+        await signInWithEmailAndPassword(email, password);
+        const url = `http://localhost:5000/login`;
+        fetch(url, {
+            method: 'POST',
+            body: JSON.stringify({
+                email
+            }),
+            headers: {
+
+                'Content-type': 'application/json'
+            },
+        })
+            .then((response) => response.json())
+            .then((data) => {
+
+                localStorage.setItem("accessToken", data.accessToken);
+
+            });
+        navigate(from, { replace: true });
+
         event.target.reset();
     }
     const handleEmail = event => {
@@ -33,7 +52,7 @@ const Login = () => {
     }
     const navigate = useNavigate();
     if (user) {
-        navigate(from, { replace: true });
+        // navigate(from, { replace: true });
     }
     if (loading) {
         return <p><Loading></Loading></p>
@@ -49,9 +68,9 @@ const Login = () => {
 
     }
     return (
-        <div>
-            <h1 className="text-center text-primary mt-5">Please Login</h1>
-            <div className="w-50 mx-auto mt-3  display">
+        <div className="display mt-5">
+            <h1 className="text-center text-primary mt-3">Please Login</h1>
+            <div className="w-100 mx-auto">
                 <Form onSubmit={handleLogin}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
@@ -72,9 +91,10 @@ const Login = () => {
                     <p className="mt-3">New to this website ? <Link className="text-decoration-none" to="/signup">sign up</Link></p>
                     <p>Forget Password ? <Link onClick={ResetPassword} className="text-decoration-none" to="/login">Reset Password</Link></p>
                 </Form>
-                <SocialLogin></SocialLogin>
+
                 <ToastContainer />
             </div>
+            <SocialLogin></SocialLogin>
         </div >
     );
 };
