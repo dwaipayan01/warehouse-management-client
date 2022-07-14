@@ -8,14 +8,14 @@ const AddItem = () => {
     const [user, loading, error] = useAuthState(auth);
 
 
-    const { register, handleSubmit, getValues } = useForm();
+    const { register, handleSubmit, getValues, reset } = useForm();
     const onSubmit = (event) => {
         const data = {
             picture: getValues("picture"),
             name: getValues("name"),
             price: getValues("price"),
             quantity: getValues("quantity"),
-            supplier: getValues("supplierName"),
+            supplierName: getValues("supplierName"),
             shortDescription: getValues("shortDescription"),
             email: user.email
         }
@@ -32,9 +32,11 @@ const AddItem = () => {
             .then(result => {
                 console.log(result);
 
+
             })
-        event.target.reset();
+        reset();
         toast("Item added successfully");
+
 
 
 

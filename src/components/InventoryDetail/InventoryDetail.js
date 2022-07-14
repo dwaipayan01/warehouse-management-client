@@ -80,7 +80,7 @@ const InventoryDetail = () => {
                 <Form onSubmit={handleItem} className="w-25 mx-auto mt-3">
                     <Form.Group className="mb-3" controlId="formBasicNumber">
                         <Form.Label>Restock the items</Form.Label>
-                        <Form.Control type="number" name="number" placeholder="name" />
+                        <Form.Control type="number" name="number" placeholder="Type any number" />
                     </Form.Group>
                     <Button variant="primary" type="submit">
                         Submit

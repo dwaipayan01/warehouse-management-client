@@ -1,0 +1,46 @@
+import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+import ShowList from './ShowList';
+
+const ItemList = () => {
+    const [user, loading, error] = useAuthState(auth);
+    const email = user.email
+    const [items, setItems] = useState([]);
+    useEffect(() => {
+        const url = `http://localhost:5000/itemList?email=${email}`;
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setItems(data));
+    }, [user])
+    const handleDeleteItem = id => {
+        const proced = window.confirm("Are you sure");
+        if (proced) {
+            const url = `http://localhost:5000/item/${id}`;
+            fetch(url, {
+                method: "DELETE",
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    const remaning = items.filter(it => it._id !== id);
+                    setItems(remaning);
+                });
+        }
+    }
+    return (
+        <div>
+            <h1 className="text-primary text-center mt-5">Check your all item</h1>
+            <div>
+                {
+                    items.map(item => <ShowList item={item} key={item._id} handleDeleteItem={handleDeleteItem}></ShowList>)
+                }
+            </div>
+
+        </div>
+    );
+};
+
+export default ItemList;
