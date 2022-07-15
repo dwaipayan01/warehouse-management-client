@@ -1,0 +1,10 @@
+.blog-area {
+    width: 1200px;
+}
+
+
+@media only screen and (max-width:576px) {
+    .blog-area {
+        width: 100%;
+    }
+}

@@ -12,7 +12,7 @@ const SpecialProduct = () => {
     return (
         <div>
             <h1 className="text-center text-success">Special Product</h1>
-            <div className="mt-5 show-area container">
+            <div className="mt-5 show-area">
                 {
                     products.map(product => <ShowProducts product={product} key={product._id}></ShowProducts>)
                 }

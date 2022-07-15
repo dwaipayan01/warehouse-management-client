@@ -1,8 +1,9 @@
 import React from 'react';
+import "./Blogs.css";
 
 const Blogs = () => {
     return (
-        <div className="ms-5 mt-5 container">
+        <div className="container mt-5  blog-area">
             <h3>Difference between javascript and nodejs ?</h3>
             <p>JavaScript is a simple programming language that runs in any browser JavaScript Engine. Whereas Node JS is an interpreter or running environment for a JavaScript programming language that holds many excesses, it requires libraries that can easily be accessed from JavaScript programming for better use.</p>
             <h3>When should you use nodejs and when should you use mongodb ?</h3>
