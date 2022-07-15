@@ -11,7 +11,7 @@ const InventoryDetail = () => {
     const { inventoryID } = useParams();
     const [inventory, setInventory] = useState(true);
     useEffect(() => {
-        const url = `http://localhost:5000/inventory/${inventoryID}`;
+        const url = `https://belle-fromage-55105.herokuapp.com/inventory/${inventoryID}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setInventory(data));
@@ -22,7 +22,7 @@ const InventoryDetail = () => {
         const newQuantity = parseInt(updatedQuantity) + parseInt(inventory.quantity);
         console.log(newQuantity);
         const renewQuantity = { newQuantity };
-        const url = `http://localhost:5000/inventory/${inventoryID}`;
+        const url = `https://belle-fromage-55105.herokuapp.com/inventory/${inventoryID}`;
         fetch(url, {
             method: "PUT",
             headers: {
@@ -43,7 +43,7 @@ const InventoryDetail = () => {
         const newValue = parseInt(inventory.quantity) - 1;
         console.log(newValue);
         const renewQuantity = { newValue };
-        const url = `http://localhost:5000/user/${inventoryID}`;
+        const url = `https://belle-fromage-55105.herokuapp.com/user/${inventoryID}`;
         fetch(url, {
             method: "PUT",
             headers: {

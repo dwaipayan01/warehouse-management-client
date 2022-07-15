@@ -26,7 +26,7 @@ const Login = () => {
         const email = event.target.email.value;
         const password = event.target.password.value;
         await signInWithEmailAndPassword(email, password);
-        const url = `http://localhost:5000/login`;
+        const url = `https://belle-fromage-55105.herokuapp.com/login`;
         fetch(url, {
             method: 'POST',
             body: JSON.stringify({

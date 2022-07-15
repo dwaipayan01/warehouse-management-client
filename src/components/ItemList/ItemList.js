@@ -13,7 +13,7 @@ const ItemList = () => {
     const [items, setItems] = useState([]);
     const navigate = useNavigate();
     useEffect(() => {
-        const url = `http://localhost:5000/itemList?email=${email}`;
+        const url = `https://belle-fromage-55105.herokuapp.com/itemList?email=${email}`;
         try {
 
             fetch(url, {
@@ -36,7 +36,7 @@ const ItemList = () => {
     const handleDeleteItem = id => {
         const proced = window.confirm("Are you sure");
         if (proced) {
-            const url = `http://localhost:5000/item/${id}`;
+            const url = `https://belle-fromage-55105.herokuapp.com/item/${id}`;
             fetch(url, {
                 method: "DELETE",
             })

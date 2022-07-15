@@ -11,7 +11,7 @@ const ManageInventory = () => {
     const handleDelete = id => {
         const proced = window.confirm("Are you sure");
         if (proced) {
-            const url = `http://localhost:5000/product/${id}`;
+            const url = `https://belle-fromage-55105.herokuapp.com/product/${id}`;
             fetch(url, {
                 method: "DELETE",
             })
