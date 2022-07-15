@@ -7,7 +7,7 @@ const Subscription = () => {
         <div className='middle-area mt-5'>
             <h5 className="centered">Subscribe to our Newsletter</h5>
             <div className='middle-area-one'>
-                <InputGroup className="mb-3 w-25 mx-auto ">
+                <InputGroup className="mb-3 w-50 mx-auto input-field">
                     <Form.Control
                         placeholder="Enter your email"
                         aria-label="Enter your email"
